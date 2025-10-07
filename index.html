@@ -12,10 +12,7 @@
       padding: 50px;
     }
 
-    h1 {
-      font-size: 2.2em;
-      color: #ffccff;
-    }
+    h1 { font-size: 2.2em; color: #ffccff; }
 
     button {
       background: #a64ca6;
@@ -29,15 +26,19 @@
       margin-top: 30px;
     }
 
-    button:hover {
-      background: #d36ad3;
-      transform: scale(1.05);
-    }
+    button:hover { background: #d36ad3; transform: scale(1.05); }
 
     .card {
-      margin-top: 50px;
-      font-size: 1.5em;
+      margin-top: 40px;
       animation: fadeIn 1s ease;
+    }
+
+    img {
+      width: 250px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #d36ad3;
     }
 
     @keyframes fadeIn {
@@ -56,23 +57,24 @@
 
   <script>
     const cards = [
-      "🌞 El Sol — claridad, éxito y vitalidad.",
-      "🌙 La Luna — intuición, sueños y misterio.",
-      "⭐ La Estrella — esperanza, inspiración y guía.",
-      "⚡ La Torre — cambio repentino, transformación.",
-      "💀 La Muerte — cierre de ciclo, renacimiento.",
-      "👑 El Emperador — poder, estructura, estabilidad.",
-      "💫 La Rueda de la Fortuna — destino y movimiento.",
-      "🃏 El Loco — nuevos comienzos y libertad.",
-      "💖 Los Enamorados — decisiones y conexiones profundas."
+      { name: "El Sol", desc: "claridad, éxito y vitalidad", img: "img/19_el-sol.jpg" },
+      { name: "La Luna", desc: "intuición, sueños y misterio", img: "img/18_la-luna.jpg" },
+      { name: "La Estrella", desc: "esperanza e inspiración", img: "img/17_la-estrella.jpg" },
+      { name: "La Torre", desc: "cambio repentino, transformación", img: "img/16_la-torre.jpg" },
+      { name: "La Muerte", desc: "cierre de ciclo, renacimiento", img: "img/13_la-muerte.jpg" },
+      { name: "El Loco", desc: "nuevos comienzos, libertad", img: "img/0_el-loco.jpg" }
     ];
 
     function pickCard() {
       const random = Math.floor(Math.random() * cards.length);
       const card = cards[random];
-      const result = document.getElementById("result");
-      result.innerHTML = `<p>Tu carta es:<br><strong>${card}</strong></p>`;
+      document.getElementById("result").innerHTML = `
+        <h2>🃏 ${card.name}</h2>
+        <p>${card.desc}</p>
+        <img src="${card.img}" alt="${card.name}">
+      `;
     }
   </script>
 </body>
 </html>
+
