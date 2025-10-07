@@ -2,14 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi primera web</title>
+  <title>Tu carta del Tarot</title>
   <style>
-    body { text-align: center; font-family: sans-serif; background: #f8f0ff; color: #333; }
-    h1 { color: purple; }
+    body {
+      background: radial-gradient(circle at top, #1a001f, #000);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #ffccff;
+    }
+
+    button {
+      background: #a64ca6;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background: #d36ad3;
+      transform: scale(1.05);
+    }
+
+    .card {
+      margin-top: 50px;
+      font-size: 1.5em;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <h1>✨ Bienvenida a mi web del Tarot ✨</h1>
-  <p>Pronto podrás elegir una carta del tarot aquí...</p>
+  <h1>✨ Descubrí tu carta del Tarot ✨</h1>
+  <p>Conectá con tu intuición y hacé clic para revelar tu carta...</p>
+
+  <button onclick="pickCard()">Elegir carta</button>
+
+  <div id="result" class="card"></div>
+
+  <script>
+    const cards = [
+      "🌞 El Sol — claridad, éxito y vitalidad.",
+      "🌙 La Luna — intuición, sueños y misterio.",
+      "⭐ La Estrella — esperanza, inspiración y guía.",
+      "⚡ La Torre — cambio repentino, transformación.",
+      "💀 La Muerte — cierre de ciclo, renacimiento.",
+      "👑 El Emperador — poder, estructura, estabilidad.",
+      "💫 La Rueda de la Fortuna — destino y movimiento.",
+      "🃏 El Loco — nuevos comienzos y libertad.",
+      "💖 Los Enamorados — decisiones y conexiones profundas."
+    ];
+
+    function pickCard() {
+      const random = Math.floor(Math.random() * cards.length);
+      const card = cards[random];
+      const result = document.getElementById("result");
+      result.innerHTML = `<p>Tu carta es:<br><strong>${card}</strong></p>`;
+    }
+  </script>
 </body>
 </html>
